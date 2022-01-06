@@ -1,0 +1,55 @@
+{% load static %}
+
+<html>
+
+<head>
+
+</head>
+
+</html>
+
+<body>
+    {% include 'navigation.html' %}
+    <hr class="mt-0">
+    <div class="container mt-5">
+        <h2 class="text-center">Login as</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card" style="width: 300px;">
+                    <img src="{% static 'images/businessman-giving-money-donation-to-charity-free-photo.jpg' %}" alt="" class="card-img-top" style="width: 100%; height: 200px;">
+                    <div class="card-body">
+                        <h4 class="card-title">Donor</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        <a href="{% url 'donor_login' %}" class="btn btn-primary">Donor login</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card" style="width: 300px;">
+                    <img src="{% static 'images/getty_501535569_375772.jpg' %}" alt="" class="card-img-top" style="width: 100%; height: 200px;">
+                    <div class="card-body">
+                        <h4 class="card-title">Charity Foundation</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        <a href="{% url 'charfo_login' %}" class="btn btn-primary">Charity Foundation login</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card" style="width: 300px;">
+                    <img src="{% static 'images/windows_uac_shield_logo_hero.jpg' %}" alt="" class="card-img-top" style="width: 100%; height: 200px;">
+                    <div class="card-body">
+                        <h4 class="card-title">Admin</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                        <a href="{% url 'admin_login' %}" class="btn btn-primary">Admin login</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+

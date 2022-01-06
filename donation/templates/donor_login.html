@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+</head>
+<body style="background-image: url({% static 'images/photo-1488521787991-ed7bbaae773c.jpg' %});">
+    {% include 'navigation.html' %}
+    <hr class="mt-0">
+    <div class="row">
+        <div class="col-lg-5 m-auto">
+            <div class="card mt-5 bg-dark">
+                <div class="card-title text-center mt-3">
+                    <img src="{% static 'images/2476166.jpg' %}" alt="" width="150" height="150">
+                    <h2 style="color: aliceblue;">Donor Login</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-user fa-2x"></i>
+                                </span>
+                            </div>
+                            <input type="email" name="emailid" class="form-control py-4" placeholder="Email Id">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock fa-2x"></i>
+                                </span>
+                            </div>
+                            <input type="password" name="pwd" class="form-control py-4" placeholder="password">
+                        </div>
+                        <input type="submit" value="login" class="btn btn-success px-5">
+                        <a href="{% url 'donor_reg' %}" class="float-right text-white mt-2">Create Acccount <i class="fas fa-angle-double-right"></i></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% if error == "no" %}
+    <script>
+        alert('Sign in successful')
+        window.location=('{% url 'donor_home' %}')
+    </script>
+    {% endif %}
+    {% if error == "yes" %}
+    <script>
+        alert('Invalid credentials. Try again! ')
+        window.location=('{% url 'donor_reg' %}')
+    </script>
+    {% endif %}
+</body>
+</html>
